@@ -1,5 +1,10 @@
+# 1. Registrar paciente
+# 2. Mostrar pacientes registrados
+# 3. Mostrar promedio de IMC
+# 4. Mostrar paciente con mayor IMC
+# 5. Salir
 
-#Register patient
+
 userName=input("Introduce your name: ")
 userAge=int(input("Introduce your age: "))
 userWeight=float(input("Introduce your weight: "))
@@ -23,14 +28,16 @@ def calculate_bmi(weight,height):
            print ("Class III Obesity")
         else:
            print("Error")
+        return round(bmi,2)
 
 
 def register_patient(name,age,weight,height):
-    print("Patient: ", name)
-    print("Age: ", age)
-    calculate_bmi(weight,height)
+    bmi_fn=calculate_bmi(weight,height)
+    patientInfo=[name,age,weight,height,bmi_fn]
+    return patientInfo
 
 
+patients=[]
+patients.append(register_patient(userName, userAge, userWeight, userHeight))
 
-register_patient(userName,userAge,userWeight,userHeight)
-
+print(patients)
