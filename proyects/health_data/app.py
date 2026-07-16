@@ -40,4 +40,4 @@ def register_patient(name,age,weight,height):
 patients=[]
 patients.append(register_patient(userName, userAge, userWeight, userHeight))
 
-print(patients)
+print("Patient information: ", patients)
