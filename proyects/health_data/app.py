@@ -31,13 +31,27 @@ def calculate_bmi(weight,height):
         return round(bmi,2)
 
 
-def register_patient(name,age,weight,height):
-    bmi_fn=calculate_bmi(weight,height)
-    patientInfo=[name,age,weight,height,bmi_fn]
-    return patientInfo
+def register_patient(name, age, weight, height):
+    bmi_fn = calculate_bmi(weight, height)
+    patient_info = {
+        "name": name,
+        "age": age,
+        "weight": weight,
+        "height": height,
+        "bmi": bmi_fn
+    }
+    return patient_info
 
 
 patients=[]
 patients.append(register_patient(userName, userAge, userWeight, userHeight))
 
-print("Patient information: ", patients)
+
+def show_all_patients():
+    for idx, patient in enumerate(patients, start=1):
+        print(f"Patient {idx}")
+        for key, value in patient.items():
+            print(key, value)
+
+
+print(patients)
