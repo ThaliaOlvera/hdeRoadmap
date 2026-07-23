@@ -5,37 +5,19 @@
 # #5. Go out 
 # #6. Statistics 
 # #7. Go out
+import csv
 
-patients = [
-    {
-        "name": "John Smith",
-        "age": 45,
-        "weight": 82,   # kg
-        "height": 1.78, # meters
-        "bmi": 25.9
-    },
-    {
-        "name": "Emily Johnson",
-        "age": 32,
-        "weight": 68,
-        "height": 1.65,
-        "bmi": 24.9
-    },
-    {
-        "name": "Michael Brown",
-        "age": 54,
-        "weight": 95,
-        "height": 1.80,
-        "bmi": 29.3
-    },
-    {
-        "name": "Sophia Davis",
-        "age": 29,
-        "weight": 58,
-        "height": 1.70,
-        "bmi": 20.1
-    }
-]
+def load_patients_from_csv():
+    patients = []
+
+    with open("patients.csv","r") as file:
+        reader = csv.DictReader(file)
+
+        for patient in reader:
+            patients.append(patient)
+
+    return patients
+
 
 user_menu_option1=input("Do you want")
 
